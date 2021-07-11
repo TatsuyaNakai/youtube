@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const YOUTUBE_SEARCH_API_URL="https://www.googleapis.com/youtube/v3/search?";
-const API_KEY="[AIzaSyDn-CWtgAB0VO5cMHdTbQmAd7isVdvQsmU]";
+const API_KEY="AIzaSyDn-CWtgAB0VO5cMHdTbQmAd7isVdvQsmU";
 
 const Api=()=>{
     const [video, setVideo]=useState('');
@@ -16,7 +16,6 @@ const Api=()=>{
             order:"viewCount", //結果の並び順決定する。（今回でいうと多い順に並べてる。）
         };
         const queryParams=new URLSearchParams(params);
-
         // const asyncFn=async()=>{
         //     await axios.get(YOUTUBE_SEARCH_API_URL+ queryParams)
         //     .then((res)=>{
@@ -39,7 +38,8 @@ const Api=()=>{
             console.log('API success: ', result);
             if(result.items && result.items.length !==0 ){
                 const firstItem= result.items[0];
-                setVideo(firstItem.id.video);
+                // debugger;
+                setVideo(firstItem.id.videoId);
             }
         }).catch((error)=>{
             console.log(error);

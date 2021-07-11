@@ -1,20 +1,12 @@
-## Youtube APIを試しましたが、status error code 400が出てきて動画再生することができません。
+## 複数のYoutubeのIDを取得することはできたのですが、出力をすることができませんでした。
+複数取得を行い、そこから画面の下に並べていこうと思いコードを打っていました。
 
-こちらのサイトを試して作っていました。
-[Youtube APIを使って検索+再生をやってみた](https://qiita.com/okula-hs/items/6fc2986e7e3bf9741628)
+取得は maxResults:"5", に変更したところ5つ分のIDを取得することができました。（paramsDateで確認しました。）
+25行目から34行目になりますが、for文を使用して配列に詰めていく作業を行いました。
+しかし、debuggerでも確認しましたが、配列が空のままで詰めることができなかったです。。。
 
-画面としては、youtubeの再生画面は表示されるのですが、再生することができません。
-コンソールを確認したところ、**error code 400**, 
-messageには **API key not valid. Please pass a valid API key**という表示がありました。
-いつもstates codeは200なのに、今回は400だったので、こちらから調べていくことにしました。
-[400 Bad Request](https://developer.mozilla.org/ja/docs/Web/HTTP/Status/400)
+paramsObj.id.videoIdでYoutubeのIDまでは獲得できているので、setVideosの書き方がおかしいのかとも思いましたが、
+配列をレストパラメーターで展開し、そこから、新しく配列を詰めてから、配列で囲作業を行いました。
 
-僕が考えた答えとしては、APIの取得方法が間違っているのかと思い、YoutubeAPIの取得方法を再度調べました。
-
-APIが初めてなので、間違っていると思い以下のサイトを参考にしましたが、結果としてはいまも変わらず表示されませんでした。
-[Youtube Data API で取得したデータをPython（Pandas/matplotlib）で可視化](https://qiita.com/Ryooota/items/7084bb7dcb655d86eadb)
-[YouTube API APIキーの取得方法](https://qiita.com/chieeeeno/items/ba0d2fb0a45db786746f)
-
-google Cloud Platformによれば5分以上設定に時間がかかるかも。とありましたが、それも改善されませんでした。。
-エラーの原因についてまだ詳しくないので、何を見ていけばいいのか教えてもらえたらと思います。
-
+考え方としてはあっていますでしょうか。
+少し詰まってしまったので、送らせていただきました。

@@ -26,8 +26,11 @@ const Api=()=>{
                     // もしデータのitemsと、itemsの長さが0 ではなかった場合。
                     for(let i=0; i<paramsDate.length; i++){
                         const paramsObj=paramsDate[i];
+                        console.log(paramsObj.id.videoId);
                         // 配列の中に詰めたい。それをmapでulに並べて動画を複数取得できるようにする。
+                        debugger;
                         setVideos([...videos, paramsObj.id.videoId]);
+                        console.log(videos);
                     }
                     //変更前
                     // const firstItem = paramsDate[0];

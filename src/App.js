@@ -1,9 +1,19 @@
+import {AppBar, Toolbar, Typography} from '@material-ui/core';
 import Api from './components/Api';
 
+
+
+
 function App() {
+
+
   return (
-    <div className="App" style={{textAlign:'center'}}>
-      <h2>Youtube　API Test</h2>
+    <div>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography>Youtube　API Test</Typography>
+        </Toolbar>
+      </AppBar>
       <Api />
     </div>
   );
